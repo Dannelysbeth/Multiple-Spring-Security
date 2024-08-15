@@ -1,4 +1,5 @@
-package dannelysbeth.multiple.security.app.api;
+package dannelysbeth.multiple.security.app.controller;
+
 
 import dannelysbeth.multiple.security.app.model.Post;
 import dannelysbeth.multiple.security.app.repository.PostRepository;
@@ -11,15 +12,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
-    private final PostRepository repo;
 
-    PostController (PostRepository postRepository) {
-         this.repo = postRepository;
+    private final PostRepository repository;
+
+    public PostController(PostRepository repository) {
+        this.repository = repository;
     }
 
     @GetMapping
     public List<Post> findAll() {
-        return repo.findAll();
+        return repository.findAll();
     }
 
 }
